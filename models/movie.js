@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes){
   return sequelize.define('movie', {
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1000),
       allowNull: false
     },
     rating: {
