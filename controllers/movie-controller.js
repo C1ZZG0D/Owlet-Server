@@ -32,20 +32,20 @@ router.post('/addmovie', (req, res) => {
 
 // Broken Code Challenge (Solved)
 
-router.get('movie/:name', (req, res) => {
-    Movie.findOne({where: { name: req.params.name }})
+router.get('/movies/:id', (req, res) => {
+    Movie.findOne({where: { id: req.params.id }})
     .then(movie => res.status(200).json(movie))
     .catch(err => res.status(500).json({error: err}))
 });
 
 
-router.put('editmovie/:id', (req, res) => {
+router.put('/movies/:id', (req, res) => {
     Movie.update(req.body, {where: { id: req.params.id }})
     .then(movie => res.status(200).json(movie))
     .catch(err => res.status(500).json({ error: err}))
 });
 
-router.delete('xmovie/:id', (req, res) => {
+router.delete('/xmovie/:id', (req, res) => {
     Movie.destroy({ where : { id : req.params.id }})
     .then(recChanged => res.status(200).json(recChanged))
     .catch(err => res.status(500).json({ error: err }))
