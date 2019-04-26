@@ -39,14 +39,14 @@ router.get('/movies/:id', (req, res) => {
 });
 
 
-router.put('/movies/:id', (req, res) => {
-    Movie.update(req.body, {where: { id: req.params.id }})
+router.put('/editmovies/:name', (req, res) => {
+    Movie.update(req.body, {where: { name: req.params.name }})
     .then(movie => res.status(200).json(movie))
     .catch(err => res.status(500).json({ error: err}))
 });
 
-router.delete('/xmovie/:id', (req, res) => {
-    Movie.destroy({ where : { id : req.params.id }})
+router.delete('/xmovie/:name', (req, res) => {
+    Movie.destroy({ where : { name : req.params.name }})
     .then(recChanged => res.status(200).json(recChanged))
     .catch(err => res.status(500).json({ error: err }))
 })
