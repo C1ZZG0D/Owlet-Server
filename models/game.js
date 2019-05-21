@@ -1,6 +1,14 @@
 module.exports = function(sequelize, DataTypes){
-  return sequelize.define('movie', {
+  return sequelize.define('game', {
     name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    cover: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    platform: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -16,13 +24,9 @@ module.exports = function(sequelize, DataTypes){
       type: DataTypes.STRING,
       allowNull: false
     },
-    runtime: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: true
     },
   })
 }

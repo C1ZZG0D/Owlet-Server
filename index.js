@@ -4,7 +4,7 @@ const app = express();
 const user = require('./controllers/user-controller');
 const db = require('./db');
 const bodyParser = require('body-parser');
-const movies = require('./controllers/movie-controller');
+const games = require('./controllers/game-controller');
 const validatesession = require('./middleware/validate-session');
 
 db.sync();
@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 
 app.use(require('./middleware/headers'));
 
-app.use('/user', user);
+app.use('/auth', user);
 app.use(validatesession);
-app.use('/movies', movies);
+app.use('/games', games);
 
 app.listen(process.env.PORT, function(){
   console.log(`App is listening on ${process.env.PORT}`);
