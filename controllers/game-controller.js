@@ -20,7 +20,7 @@ router.post('/addgame', (req, res) => {
        genre : req.body.genre,
        contentrating : req.body.contentrating,
        description : req.body.description,
-    //    owner: req.body.owner
+       owner: req.user.id
    }
 
 
