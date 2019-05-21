@@ -20,6 +20,7 @@ router.post('/addgame', (req, res) => {
        genre : req.body.genre,
        contentrating : req.body.contentrating,
        description : req.body.description,
+    //    owner: req.body.owner
    }
 
 
@@ -33,14 +34,14 @@ router.post('/addgame', (req, res) => {
 
 // Broken Code Challenge (Solved)
 
-router.get('/games/:id', (req, res) => {
-    Game.findOne({where: { id: req.params.id }})
+router.get('/games/:name', (req, res) => {
+    Game.findOne({where: { name: req.params.name }})
     .then(game => res.status(200).json(game))
     .catch(err => res.status(500).json({error: err}))
 });
 
 
-router.put('/editgames/:name', (req, res) => {
+router.put('/editgame/:name', (req, res) => {
     Game.update(req.body, {where: { name: req.params.name }})
     .then(game => res.status(200).json(game))
     .catch(err => res.status(500).json({ error: err}))
